@@ -1,0 +1,427 @@
+{
+  "project": {
+    "name": "STACK TRACK",
+    "version": "1.0",
+    "description": "Student Coding Practice Tracking Application",
+    "created": "2026-05-10",
+    "environment": {
+      "platform": "Microsoft Power Apps",
+      "dataLayer": "Dataverse",
+      "automationEngine": "Power Automate",
+      "analyticsEngine": "Power BI"
+    }
+  },
+  "colors": {
+    "primary_orange": "#E3562B",
+    "primary_teal": "#1D3639",
+    "success_green": "#28A745",
+    "warning_orange": "#FFC107",
+    "error_red": "#DC3545",
+    "light_gray": "#F5F5F5",
+    "dark_gray": "#333333",
+    "border_gray": "#E0E0E0",
+    "platform_colors": {
+      "leetcode": "#FFB81C",
+      "geeksforgeeks": "#36464B",
+      "codechef": "#C4514D"
+    }
+  },
+  "typography": {
+    "font_family": "Segoe UI, sans-serif",
+    "heading_h1": {
+      "size": 28,
+      "weight": "bold",
+      "color": "#1D3639"
+    },
+    "heading_h2": {
+      "size": 20,
+      "weight": "bold",
+      "color": "#333333"
+    },
+    "body": {
+      "size": 14,
+      "weight": "regular",
+      "color": "#333333"
+    },
+    "small": {
+      "size": 12,
+      "weight": "regular",
+      "color": "#666666"
+    }
+  },
+  "spacing": {
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "xxl": 32
+  },
+  "components": {
+    "card": {
+      "background": "white",
+      "border_radius": 8,
+      "border": "1px solid #E0E0E0",
+      "padding": 12,
+      "box_shadow": "0 2px 8px rgba(0,0,0,0.1)"
+    },
+    "button": {
+      "padding": "10px 20px",
+      "border_radius": 4,
+      "font_size": 14,
+      "font_weight": "bold",
+      "primary": {
+        "background": "#E3562B",
+        "color": "white"
+      },
+      "secondary": {
+        "background": "#1D3639",
+        "color": "white"
+      },
+      "ghost": {
+        "background": "transparent",
+        "border": "1px solid #E0E0E0",
+        "color": "#333333"
+      }
+    },
+    "input": {
+      "border_radius": 4,
+      "height": 40,
+      "padding": "8px 12px",
+      "border": "1px solid #E0E0E0",
+      "focus_border": "#E3562B"
+    },
+    "badge": {
+      "padding": "4px 8px",
+      "border_radius": 4,
+      "font_size": 12,
+      "font_weight": "bold"
+    }
+  },
+  "tables": {
+    "students": {
+      "display_name": "Student",
+      "plural_name": "Students",
+      "columns": [
+        "studentid",
+        "firstname",
+        "lastname",
+        "emailaddress",
+        "phonenumber",
+        "batchyear",
+        "department",
+        "joindate",
+        "totalproblemsolved",
+        "longeststreak",
+        "profilecompleted",
+        "status"
+      ]
+    },
+    "platforms": {
+      "display_name": "Platform",
+      "plural_name": "Platforms",
+      "columns": [
+        "platformname",
+        "platformcode",
+        "websiteurl",
+        "color",
+        "icon",
+        "description",
+        "active"
+      ],
+      "seed_data": [
+        {
+          "platformname": "LeetCode",
+          "platformcode": "LT",
+          "websiteurl": "https://leetcode.com",
+          "color": "#FFB81C"
+        },
+        {
+          "platformname": "GeeksforGeeks",
+          "platformcode": "GFG",
+          "websiteurl": "https://geeksforgeeks.org",
+          "color": "#36464B"
+        },
+        {
+          "platformname": "CodeChef",
+          "platformcode": "CC",
+          "websiteurl": "https://codechef.com",
+          "color": "#C4514D"
+        }
+      ]
+    },
+    "student_platform_profiles": {
+      "display_name": "Student Platform Profile",
+      "plural_name": "Student Platform Profiles",
+      "columns": [
+        "studentid",
+        "platformid",
+        "platformusername",
+        "linkeddate",
+        "totalproblemsolved",
+        "easyproblemsolved",
+        "mediumproblemsolved",
+        "hardproblemsolved",
+        "lastsynced",
+        "profileurl",
+        "status"
+      ]
+    },
+    "problems": {
+      "display_name": "Problem",
+      "plural_name": "Problems",
+      "columns": [
+        "problemid",
+        "problemname",
+        "platformid",
+        "difficulty",
+        "category",
+        "topics",
+        "acceptancerate",
+        "description",
+        "exampleinput",
+        "exampleoutput",
+        "platformurl",
+        "problemnumber",
+        "createdon"
+      ]
+    },
+    "student_solutions": {
+      "display_name": "Student Solution",
+      "plural_name": "Student Solutions",
+      "columns": [
+        "studentid",
+        "problemid",
+        "platformid",
+        "status",
+        "solvedon",
+        "timespent",
+        "difficulty",
+        "isoptimal",
+        "languageused",
+        "notes",
+        "firstattemptsuccess",
+        "hintsused",
+        "syncedfromplatform",
+        "manualentry"
+      ]
+    },
+    "ai_suggestions": {
+      "display_name": "AI Suggestion",
+      "plural_name": "AI Suggestions",
+      "columns": [
+        "studentid",
+        "suggestiontype",
+        "title",
+        "description",
+        "recommendedon",
+        "priority",
+        "category",
+        "targetdifficulty",
+        "estimatedtimehours",
+        "relevancedata",
+        "status",
+        "reasoning",
+        "generatedat"
+      ]
+    }
+  },
+  "screens": {
+    "dashboard": {
+      "name": "Dashboard",
+      "icon": "📊",
+      "description": "Main student view with overview of all platforms",
+      "components": [
+        "Header with greeting",
+        "Sync button",
+        "Stats cards (Total, Difficulty, Streak, Platforms)",
+        "Platform cards gallery",
+        "Recent activity section",
+        "CTAs (Update Profiles, Get Suggestions)"
+      ]
+    },
+    "platform_details": {
+      "name": "Platform Details",
+      "icon": "🔗",
+      "description": "Deep dive into specific platform statistics",
+      "components": [
+        "Platform header with icon",
+        "Profile section with username and link date",
+        "Statistics grid (Easy, Medium, Hard)",
+        "Difficulty breakdown pie chart",
+        "Topic-wise progress bar chart",
+        "Timeline/activity heatmap",
+        "Solved problems list with filters"
+      ]
+    },
+    "progress": {
+      "name": "Progress",
+      "icon": "📈",
+      "description": "Comprehensive analytics and progress tracking",
+      "components": [
+        "Time period selector",
+        "Overview cards (total, success rate, avg time)",
+        "Combined difficulty chart",
+        "Platform comparison chart",
+        "Topic mastery matrix",
+        "Timeline graph",
+        "Learning path recommendations",
+        "Export button"
+      ]
+    },
+    "profile": {
+      "name": "Profile",
+      "icon": "👤",
+      "description": "User account and platform profile management",
+      "components": [
+        "Personal information section",
+        "Platform accounts gallery",
+        "Link new platform modal",
+        "Settings section",
+        "Danger zone (delete account)"
+      ]
+    },
+    "ai_suggestions": {
+      "name": "AI Recommendations",
+      "icon": "🤖",
+      "description": "Personalized AI-generated recommendations",
+      "components": [
+        "Header with refresh button",
+        "Filter options (priority, type)",
+        "Suggestion cards gallery",
+        "Completed suggestions section",
+        "Contact/feedback section"
+      ]
+    },
+    "faculty_dashboard": {
+      "name": "Faculty Dashboard",
+      "icon": "👨‍🏫",
+      "description": "Class-wide analytics and student management",
+      "components": [
+        "Class selector",
+        "KPI cards",
+        "Student performance grid",
+        "Topics performance analysis",
+        "Difficulty distribution chart",
+        "Platform usage statistics",
+        "Trends graph",
+        "Student alerts section",
+        "Assignment management"
+      ]
+    }
+  },
+  "workflows": {
+    "daily_sync": {
+      "name": "Daily Platform Data Sync",
+      "type": "Scheduled",
+      "trigger": "Every 1 day at 2:00 AM UTC",
+      "purpose": "Automatically sync problem-solving data from platforms"
+    },
+    "ai_suggestions": {
+      "name": "Generate AI Suggestions",
+      "type": "Automated",
+      "trigger": "When called from Power App",
+      "purpose": "Create personalized AI recommendations"
+    },
+    "milestone_notifications": {
+      "name": "Milestone Achievement Notifications",
+      "type": "Automated",
+      "trigger": "When milestone reached",
+      "purpose": "Celebrate student achievements"
+    },
+    "weekly_digest": {
+      "name": "Weekly Progress Summary",
+      "type": "Scheduled",
+      "trigger": "Every Monday at 8:00 AM",
+      "purpose": "Send weekly digest to students"
+    },
+    "faculty_report": {
+      "name": "Faculty Analytics Report",
+      "type": "Scheduled",
+      "trigger": "Every Friday at 5:00 PM",
+      "purpose": "Generate class-wide analytics"
+    },
+    "profile_verification": {
+      "name": "Platform Profile Verification",
+      "type": "Automated",
+      "trigger": "When profile created",
+      "purpose": "Verify and link student platform profiles"
+    },
+    "data_export": {
+      "name": "Export Class Data",
+      "type": "Triggered",
+      "trigger": "When faculty requests export",
+      "purpose": "Export analytics for reporting"
+    }
+  },
+  "api_integrations": {
+    "leetcode": {
+      "base_url": "https://leetcode.com/api/v1/",
+      "endpoints": {
+        "user_profile": "/user/{username}/",
+        "submissions": "/submissions/{username}/"
+      },
+      "auth": "API Key in environment variable"
+    },
+    "geeksforgeeks": {
+      "base_url": "https://api.geeksforgeeks.org/",
+      "endpoints": {
+        "user_profile": "/user/profile/{username}/",
+        "solved_problems": "/user/{username}/problems/"
+      },
+      "auth": "API Key in environment variable"
+    },
+    "codechef": {
+      "base_url": "https://api.codechef.com/",
+      "endpoints": {
+        "user_profile": "/user/{username}/",
+        "submissions": "/user/{username}/submissions/"
+      },
+      "auth": "API Key in environment variable"
+    },
+    "azure_openai": {
+      "service": "Azure OpenAI GPT-4",
+      "endpoint": "https://{resource}.openai.azure.com/",
+      "auth": "API Key in Power Automate secrets"
+    }
+  },
+  "security": {
+    "roles": [
+      {
+        "name": "Student",
+        "permissions": {
+          "students": "User",
+          "student_platform_profiles": "User",
+          "student_solutions": "User",
+          "ai_suggestions": "User",
+          "problems": "Read (Organization)",
+          "platforms": "Read (Organization)"
+        }
+      },
+      {
+        "name": "Faculty",
+        "permissions": {
+          "all_tables": "Read",
+          "student_solutions": "Read (Organization)",
+          "ai_suggestions": "Read (Organization)"
+        }
+      },
+      {
+        "name": "Admin",
+        "permissions": {
+          "all_tables": "Full"
+        }
+      }
+    ]
+  },
+  "deployment": {
+    "environments": ["Sandbox", "Production"],
+    "backup_frequency": "Daily",
+    "maintenance_window": "Sunday 2:00 AM UTC",
+    "monitoring": {
+      "uptime_sla": "99.5%",
+      "response_time": "< 2 seconds",
+      "error_rate": "< 0.1%"
+    }
+  }
+}
